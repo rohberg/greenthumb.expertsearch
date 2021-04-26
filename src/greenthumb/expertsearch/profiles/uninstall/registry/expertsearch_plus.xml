@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<registry
+    xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+    i18n:domain="greenthumb.expertsearch">
+  <records prefix="plone.bundles/expertsearch_plus"
+          interface='Products.CMFPlone.interfaces.IBundleRegistry'
+          remove="true">
+  </records>
+
+  <!-- <records interface="Products.CMFPlone.interfaces.controlpanel.ITinyMCESchema" prefix="plone">
+    <value key="other_settings" purge="false">{"custom_elements": "expertsearch-plus"}</value>
+  </records> -->
+
+</registry>
