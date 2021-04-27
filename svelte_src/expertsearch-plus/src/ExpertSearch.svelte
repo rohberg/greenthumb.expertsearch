@@ -82,3 +82,20 @@
     <p>no experts found</p>
   {/each}
 </div>
+
+<style>
+  .cards {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+  }
+  .card {
+    width: 15rem;
+    min-height: 10em;
+    background: white;
+    margin: 0 1rem 1rem 0;
+    padding: 1.5rem 1rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+    border-radius: 3px;
+  }
+</style>
