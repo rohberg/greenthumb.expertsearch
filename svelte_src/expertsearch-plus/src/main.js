@@ -1,6 +1,6 @@
 import App from './App.svelte';
 
-let targets = document.getElementsByTagName("expertsearch-plus");
+let targets = document.getElementsByClassName("expertsearch-plus");
 
 for(let i = 0;i < targets.length; i++){
     let target = targets[i];
