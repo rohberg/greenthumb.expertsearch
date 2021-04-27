@@ -55,6 +55,7 @@ setup(
         'plone.app.dexterity',
         'Products.membrane>= 5.0.0a1',
         'dexterity.membrane>=3.0.0a1',
+        'collective.dexteritytextindexer',
     ],
     extras_require={
         'test': [
