@@ -1,4 +1,6 @@
 <script>
+  import { SyncLoader } from 'svelte-loading-spinners'
+
   const regions = [
     'all regions',
     'Zürich',
@@ -15,10 +17,12 @@
   $: searchUrl = ((region == 'all regions') ? searchApiUrl : searchApiUrl + '&region=' + encodeURI(region))
       + (searchstring ? ('&SearchableText=' + searchstring + '*') : '');
   let experts = [];
+  let isLoading = false;
 
   $: getExperts(searchstring, region);
 
   async function getExperts(mysearchstring, myregion) {
+    isLoading = true;
 
     // search from 3 letters on
     // search also for empty searchstring to get all
@@ -45,7 +49,8 @@
     })
     .catch(error => {
       console.error('There has been a problem with your fetch operation:', error);
-    });
+    })
+    .finally(() => isLoading=false);
   };
 
   const handleClickRegion = (event) => {
@@ -81,6 +86,11 @@
   {:else}
     <p>no experts found</p>
   {/each}
+  {#if isLoading}
+    <div class="spinner">
+      <SyncLoader size="30" color="#007cbf" unit="px" duration="2s"></SyncLoader>
+    </div>
+  {/if}
 </div>
 
 <style>
