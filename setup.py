@@ -53,6 +53,8 @@ setup(
         'plone.api>=1.8.4',
         'plone.restapi',
         'plone.app.dexterity',
+        'Products.membrane>= 5.0.0a1',
+        'dexterity.membrane>=3.0.0a1',
     ],
     extras_require={
         'test': [
