@@ -3,4 +3,7 @@
   <index name="region" meta_type="FieldIndex">
     <indexed_attr value="region"/>
   </index>
+  <index name="last_name" meta_type="FieldIndex">
+    <indexed_attr value="last_name"/>
+  </index>
 </object>

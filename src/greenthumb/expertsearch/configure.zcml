@@ -51,5 +51,8 @@
       name="greenthumb.expertsearch.svelte"
       />
 
+  <adapter factory=".indexers.MembraneSearchableTextExtender"
+        name="MembraneSearchableTextExtender"
+        />
 
 </configure>
