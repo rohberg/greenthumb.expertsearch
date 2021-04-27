@@ -27,7 +27,7 @@ Install greenthumb.expertsearch by adding it to your buildout::
 and then running ``bin/buildout``
 
 
-Compile Svelte code:
+Compile Svelte code::
 
     cd rohberg.expertsearch/svelte_src/my-svelte-app
     npm install
