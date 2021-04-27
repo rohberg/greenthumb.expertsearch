@@ -20,10 +20,17 @@ class IExpert(model.Schema):
     """
     """
 
-    project = schema.TextLine(
-        title=_(u'Project'),
-        description=_(u'Give in a project name'),
-        required=False,
+    competence = schema.TextLine(
+        title=_(u'Competence'),
+        required=True,
+    )
+    region = schema.TextLine(
+        title=_(u'Region'),
+        required=True
+    )
+    organisation = schema.TextLine(
+        title=_(u'Organisation'),
+        required=True,
     )
 
 
@@ -34,11 +41,33 @@ class Expert(object):
         self.context = context
 
     @property
-    def project(self):
-        if safe_hasattr(self.context, 'project'):
-            return self.context.project
+    def competence(self):
+        if safe_hasattr(self.context, 'competence'):
+            return self.context.competence
         return None
 
-    @project.setter
-    def project(self, value):
-        self.context.project = value
+    @competence.setter
+    def competence(self, value):
+        self.context.competence = value
+
+
+    @property
+    def region(self):
+        if safe_hasattr(self.context, 'region'):
+            return self.context.region
+        return None
+
+    @region.setter
+    def region(self, value):
+        self.context.region = value
+
+
+    @property
+    def organisation(self):
+        if safe_hasattr(self.context, 'organisation'):
+            return self.context.organisation
+        return None
+
+    @organisation.setter
+    def organisation(self, value):
+        self.context.organisation = value
