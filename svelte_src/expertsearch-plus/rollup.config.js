@@ -1,3 +1,4 @@
+import replace from '@rollup/plugin-replace';
 import commonjs from '@rollup/plugin-commonjs';
 import livereload from 'rollup-plugin-livereload';
 import resolve from '@rollup/plugin-node-resolve';
@@ -27,6 +28,15 @@ export default {
             css: css => {
                 css.write('bundle.css');
             }
+        }),
+
+        replace({
+        // two level deep object should be stringified
+        process: JSON.stringify({
+            env: {
+            isProd: production,
+            }
+        }),
         }),
 
         // If you have external dependencies installed from
