@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 
+from collective import dexteritytextindexer
 from greenthumb.expertsearch import _
 from plone import schema
 from plone.autoform.interfaces import IFormFieldProvider
@@ -33,6 +34,9 @@ class IExpert(model.Schema):
         required=True,
     )
 
+    dexteritytextindexer.searchable('competence')
+    # dexteritytextindexer.searchable('region') # extra index for filtering by region
+    dexteritytextindexer.searchable('organisation')
 
 @implementer(IExpert)
 @adapter(IExpertMarker)
