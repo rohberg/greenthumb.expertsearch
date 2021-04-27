@@ -28,6 +28,7 @@
 
 <main>
   <h1>This is your Svelte app: {name}!</h1>
+  <h2>Hello world!</h2>
   <p>
     Visit the
     <a href="https://svelte.dev/tutorial">Svelte tutorial</a>
