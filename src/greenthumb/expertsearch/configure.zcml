@@ -42,6 +42,9 @@
 
   <!-- -*- extra stuff goes here -*- -->
 
+    <include package=".behaviors" />
+
+
   <plone:static
       directory="svelte_apps"
       type="plone"
