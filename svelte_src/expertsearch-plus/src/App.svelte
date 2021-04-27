@@ -1,5 +1,7 @@
 <script>
   let name = "expertsearch-plus";
+
+  import ExpertSearch from './ExpertSearch.svelte';
 </script>
 
 <style>
@@ -34,4 +36,6 @@
     <a href="https://svelte.dev/tutorial">Svelte tutorial</a>
     to learn how to build Svelte apps.
   </p>
+
+  <ExpertSearch />
 </main>
