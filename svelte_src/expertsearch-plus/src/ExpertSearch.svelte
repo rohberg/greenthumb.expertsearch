@@ -1,16 +1,55 @@
 <script>
-  let searchstring = '';
-  let region = 'all regions';
-  const menuregions = [
+  const regions = [
     'all regions',
     'Zürich',
     'Basel',
     'Winterthur'
   ]
-  
+
+  const apiUrl = process.env.isProd ? '/' : 'http://localhost:8080/Plone/';
+  const searchApiUrl = apiUrl + '@search?portal_type=dexterity.membrane.member&fullobjects=1&sort_on=last_name&sort_order=ascending';
+
+  // state of component
+  let searchstring = '';
+  let region = 'all regions';
+  $: searchUrl = ((region == 'all regions') ? searchApiUrl : searchApiUrl + '&region=' + encodeURI(region))
+      + (searchstring ? ('&SearchableText=' + searchstring + '*') : '');
+  let experts = [];
+
+  $: getExperts(searchstring, region);
+
+  async function getExperts(mysearchstring, myregion) {
+
+    // search from 3 letters on
+    // search also for empty searchstring to get all
+    if ([1,2].includes(mysearchstring.length)) {
+      return
+    }
+
+    fetch(searchUrl, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        "Accept": "application/json"
+      }
+    })
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      return response.json();
+    })
+    .then(data => {
+      experts = data?.items || [];
+      return experts;
+    })
+    .catch(error => {
+      console.error('There has been a problem with your fetch operation:', error);
+    });
+  };
+
   const handleClickRegion = (event) => {
     region = event.target.value;
-    console.log(searchstring, region);
   }
 </script>
 
@@ -18,12 +57,28 @@
 <form action="">
   <input class="searchstring" bind:value={searchstring} placeholder="search">
   <br>
-  {#each menuregions as region}
+  {#each regions as rgn}
     <input 
       type=button
       class="regionbutton"
       on:click|preventDefault={handleClickRegion}
-      value={region}>
+      value={rgn}>
   {/each}
 </form>
-<p><i>Search{#if searchstring}{' '}for {searchstring}{/if} in {region}</i></p>
+<p><i>Results{#if searchstring}{' '}for {searchstring}{/if} in {region}</i></p>
+
+<div class="cards">
+  {#each experts as expert, i (expert['@id'])}
+    <div class="card">
+      <span class="fullname">{expert.first_name} {expert.last_name}</span>
+      <br>
+      <span class="competence">{expert.competence}</span>
+      <br>
+      <span class="organisation">{expert.organisation}</span>
+      <br>
+      <span class="region">{expert.region}</span>
+    </div>
+  {:else}
+    <p>no experts found</p>
+  {/each}
+</div>
