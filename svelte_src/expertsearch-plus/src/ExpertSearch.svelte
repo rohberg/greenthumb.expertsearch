@@ -1,4 +1,6 @@
 <script>
+  import { scale } from "svelte/transition";
+  import { flip } from "svelte/animate";
   import { SyncLoader } from 'svelte-loading-spinners'
 
   const regions = [
@@ -74,7 +76,7 @@
 
 <div class="cards">
   {#each experts as expert, i (expert['@id'])}
-    <div class="card">
+    <div class="card" transition:scale animate:flip={{ duration: 300 }}>
       <span class="fullname">{expert.first_name} {expert.last_name}</span>
       <br>
       <span class="competence">{expert.competence}</span>
