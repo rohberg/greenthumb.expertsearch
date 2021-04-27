@@ -3,33 +3,12 @@
 greenthumb.expertsearch
 =======================
 
-Tell me what your product does
+This is an example Plone Add-On for Svelte integration. It is part of the Talk **Interactive Components in Plone Classic with Svelte**. Find the HOWTO script at https://interactive-components-in-classic-plone.readthedocs.io/en/latest/ .
 
 Features
 --------
 
-- Can be bullet points
-
-
-Examples
---------
-
-This add-on can be seen in action at the following sites:
-- Is there a page on the internet where everybody can see the features?
-
-
-Documentation
--------------
-
-Full documentation for end users can be found in the "docs" folder, and is also available online at http://docs.plone.org/foo/bar
-
-
-Translations
-------------
-
-This product has been translated into
-
-- Klingon (thanks, K'Plai)
+Expert search: Find experts (Membrane users with additional fields (see behavior in this add-on) by searchstring and region.
 
 
 Installation
@@ -48,22 +27,11 @@ Install greenthumb.expertsearch by adding it to your buildout::
 and then running ``bin/buildout``
 
 
-Contribute
-----------
+Compile Svelte code:
 
-- Issue Tracker: https://github.com/collective/greenthumb.expertsearch/issues
-- Source Code: https://github.com/collective/greenthumb.expertsearch
-- Documentation: https://docs.plone.org/foo/bar
-
-
-Support
--------
-
-If you are having issues, please let us know.
-We have a mailing list located at: project@example.com
+    cd rohberg.expertsearch/svelte_src/my-svelte-app
+    npm install
+    npm run dev
 
 
-License
--------
-
-The project is licensed under the GPLv2.
+Paste `<div class="expertsearch-plus" />` in one of your pages to see the expert search.
