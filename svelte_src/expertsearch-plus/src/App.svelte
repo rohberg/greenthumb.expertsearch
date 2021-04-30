@@ -19,6 +19,13 @@
     font-weight: 100;
   }
 
+  h3 {
+    color: #ff3e00;
+    text-transform: uppercase;
+    font-size: 2em;
+    font-weight: 100;
+  }
+
   @media (min-width: 640px) {
     main {
       max-width: none;
@@ -29,8 +36,7 @@
 <!--<svelte:options tag="expertsearch-plus" /> -->
 
 <main>
-  <h1>This is your Svelte app: {name}!</h1>
-  <h2>Hello world!</h2>
+  <h3>This is your Svelte app: {name}!</h3>
   <p>
     Visit the
     <a href="https://svelte.dev/tutorial">Svelte tutorial</a>

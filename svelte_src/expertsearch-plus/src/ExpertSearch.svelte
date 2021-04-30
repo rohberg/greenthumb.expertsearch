@@ -96,6 +96,18 @@
 </div>
 
 <style>
+
+  h2 {
+    color: #ff3e00;
+    text-transform: uppercase;
+    font-size: 4em;
+    font-weight: 100;
+  }
+
+  input {
+    margin: .2rem;
+  }
+
   .cards {
     display: flex;
     flex-wrap: wrap;
